@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wygodny Salon – Pufy, podnóżki i poduszki na wymiar</title>
+  <style>
+    :root {
+      --bg: #f6f4f1;
+      --primary: #7a5c42;
+      --secondary: #c2a07a;
+      --dark: #1f1f1f;
+      --light: #ffffff;
+      --muted: #6b6b6b;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Inter", "Segoe UI", Arial, sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.7; }
+    header { min-height: 85vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080'); background-size: cover; background-position: center; color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; }
+    header img { max-width: 200px; height: auto; margin-bottom: 20px; }
+    header h1 { font-size: clamp(42px, 6vw, 72px); margin: 0 0 10px 0; }
+    header p { font-size: 22px; max-width: 900px; margin: 0 auto 20px; color: #eee; }
+    .cta { display: inline-block; padding: 18px 40px; background: var(--secondary); color: var(--dark); font-weight: 700; text-decoration: none; border-radius: 40px; }
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(31,31,31,0.95); backdrop-filter: blur(6px); padding: 16px; text-align: center; }
+    nav a { color: white; margin: 0 22px; text-decoration: none; font-weight: 600; }
+    nav a:hover { color: var(--secondary); }
+    .container { max-width: 1300px; margin: 100px auto; padding: 0 24px; }
+    h2 { text-align: center; font-size: clamp(32px, 4vw, 44px); }
+    .subtitle { text-align: center; max-width: 900px; margin: 10px auto 70px; color: var(--muted); }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .gallery-item { background: var(--light); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+    .gallery-item img { width: 100%; height: 260px; object-fit: cover; }
+    .gallery-item div { padding: 20px; }
+    .configurator { max-width: 900px; margin: 0 auto; background: var(--light); padding: 50px; border-radius: 30px; box-shadow: 0 25px 60px rgba(0,0,0,0.15); }
+    .configurator label { font-weight: 600; display: block; margin-top: 20px; }
+    .configurator input, .configurator select { width: 100%; padding: 14px; margin-top: 8px; border-radius: 12px; border: 1px solid #ddd; }
+    footer { background: var(--dark); color: white; text-align: center; padding: 60px 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+    <img src="logo.png" alt="Wygodny Salon">
+    <h1>Wygodny Salon</h1>
+    <p>Pufy, podnóżki i poduszki tapicerowane na wymiar. Wymiary, tkaniny i kolory – dokładnie tak, jak chcesz.</p>
+    <a href="#konfigurator" class="cta">Skonfiguruj produkt</a>
+  </div>
+</header>
+
+<nav>
+  <a href="#realizacje">Realizacje</a>
+  <a href="#konfigurator">Konfigurator</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<div class="container" id="realizacje">
+  <h2>Nasze realizacje</h2>
+  <p class="subtitle">Poniżej przykłady puf, podnóżków i poduszek wykonanych na indywidualne zamówienie.</p>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="Pufa na wymiar">
+      <div><strong>Pufa 60×40 cm</strong><br>Welur, kolor beżowy</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="Podnóżek">
+      <div><strong>Podnóżek</strong><br>Tkanina strukturalna, grafit</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="Poduszki">
+      <div><strong>Poduszki dekoracyjne</strong><br>Zestaw 45×45 cm</div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="konfigurator">
+  <h2>Mini konfigurator</h2>
+  <p class="subtitle">Wypełnij formularz – skontaktujemy się z Tobą z wyceną.</p>
+
+  <form class="configurator" action="https://formspree.io/f/xdovwzrb" method="POST">
+    <label>Produkt</label>
+    <select name="produkt" required>
+      <option value="Pufa">Pufa</option>
+      <option value="Podnóżek">Podnóżek</option>
+      <option value="Poduszki">Poduszki</option>
+    </select>
+
+    <label>Szerokość (cm)</label>
+    <input type="number" name="szerokosc" placeholder="np. 60" required>
+
+    <label>Głębokość (cm)</label>
+    <input type="number" name="glebokosc" placeholder="np. 40" required>
+
+    <label>Wysokość (cm)</label>
+    <input type="number" name="wysokosc" placeholder="np. 45" required>
+
+    <label>Kolor tkaniny</label>
+    <select name="kolor">
+      <option>Beżowy</option>
+      <option>Szary</option>
+      <option>Grafit</option>
+      <option>Zielony</option>
+      <option>Niebieski</option>
+      <option>Inny (opis poniżej)</option>
+    </select>
+
+    <label>Rodzaj tkaniny</label>
+    <select name="tkanina">
+      <option>Welur</option>
+      <option>Tkanina strukturalna</option>
+      <option>Bukla</option>
+      <option>Ekoskóra</option>
+    </select>
+
+    <label>Dodatkowe informacje</label>
+    <input type="text" name="uwagi" placeholder="np. pikowanie, lamówka, nóżki">
+
+    <label>Numer telefonu</label>
+    <input type="tel" name="telefon" placeholder="Twój numer telefonu" required>
+
+    <p style="margin-top:20px; font-weight:600;">Szacunkowa cena: <span id="price">od 220 zł</span></p>
+
+    <button type="submit" style="margin-top:30px; width:100%; padding:18px; background:#7a5c42; color:white; font-weight:700; border:none; border-radius:40px; font-size:16px; cursor:pointer;">Wyślij konfigurację</button>
+  </form>
+
+  <script>
+    const inputs = document.querySelectorAll('.configurator input, .configurator select');
+    const price = document.getElementById('price');
+
+    function calculatePrice() {
+      let base = 220;
+      inputs.forEach(i => {
+        if(i.name === 'wysokosc' && i.value > 50) base += 50;
+        if(i.name === 'tkanina' && i.value === 'Bukla') base += 80;
+      });
+      price.textContent = 'od ' + base + ' zł';
+    }
+
+    inputs.forEach(i => i.addEventListener('change', calculatePrice));
+  </script>
+</div>
+
+<div class="container" id="kontakt">
+  <h2>Kontakt</h2>
+  <p class="subtitle">Skontaktujemy się po wysłaniu konfiguracji.</p>
+  <p><strong>123 456 789</strong></p>
+</div>
+
+<footer>
+  <p>© 2025 Wygodny Salon</p>
+  <p>Pufy • Podnóżki • Poduszki na wymiar</p>
+</footer>
+
+</body>
+</html>
